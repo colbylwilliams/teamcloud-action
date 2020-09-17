@@ -6,11 +6,13 @@ import { promises as fs } from 'fs'
 async function run(): Promise<void> {
   try {
     const workspace = process.env.GITHUB_WORKSPACE
-    const eventPath = process.env.REACT_APP_TC_API_URL
+    const eventPath = process.env.GITHUB_EVENT_PATH
     const commandPath = `${workspace}/command.json`
 
     if (!eventPath) {
-      core.setFailed('Unable to find event payload path. Environment variable GITHUB_WORKSPACE is undefined.')
+      core.setFailed(
+        'Unable to find event payload path. Environment variable GITHUB_EVENT_PATH is undefined.'
+      )
     } else {
       const buffer = await fs.readFile(eventPath)
       const event = JSON.parse(buffer.toString())
