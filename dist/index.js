@@ -724,10 +724,10 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const workspace = process.env.GITHUB_WORKSPACE;
-            const eventPath = process.env.REACT_APP_TC_API_URL;
+            const eventPath = process.env.GITHUB_EVENT_PATH;
             const commandPath = `${workspace}/command.json`;
             if (!eventPath) {
-                core.setFailed('Unable to find event payload path. Environment variable GITHUB_WORKSPACE is undefined.');
+                core.setFailed('Unable to find event payload path. Environment variable GITHUB_EVENT_PATH is undefined.');
             }
             else {
                 const buffer = yield fs_1.promises.readFile(eventPath);
