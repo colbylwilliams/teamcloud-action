@@ -25,6 +25,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@actions/artifact": "^0.3.5",
     "@actions/core": "^1.2.5"
   },
   "devDependencies": {
