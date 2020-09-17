@@ -44,6 +44,13 @@ async function run(): Promise<void> {
         }
 
         core.setOutput('command', command)
+        core.setOutput('command.id', command.commandId)
+        core.setOutput('project', command.payload)
+        core.setOutput('project.id', command.payload.id)
+        core.setOutput('project.name', command.payload.name)
+        core.setOutput('project.resourceGroup.id', command.payload.resourceGroup.id)
+        core.setOutput('project.resourceGroup.name', command.payload.resourceGroup.name)
+        core.setOutput('project.resourceGroup.region', command.payload.resourceGroup.region)
       }
     }
   } catch (error) {
